@@ -10,3 +10,4 @@ fi
 
 # Clone Moodle repository.
 cd "${GITPOD_REPO_ROOT}" && git clone --branch "${MOODLE_BRANCH}" --single-branch "${MOODLE_REPOSITORY}" moodle
+cd "${GITPOD_REPO_ROOT}" && git clone https://github.com/moodlehq/moodle-local_moodleappbehat  --branch=ci "moodle/local/moodleappbehat"

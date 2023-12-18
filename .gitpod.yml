@@ -14,6 +14,11 @@ tasks:
       # Ensure customized config.php for the Docker containers is in place
       cp config.docker-template.php $MOODLE_DOCKER_WWWROOT/config.php
 
+      # Prepare global vars for mobile app Behat support
+      export MOODLE_DOCKER_SELENIUM_VNC_PORT=5900
+      export MOODLE_DOCKER_APP_VERSION=latest-test
+      export MOODLE_DOCKER_BROWSER=chrome
+
       # Start up containers.
       bin/moodle-docker-compose up -d
 
@@ -37,6 +42,11 @@ tasks:
       git reset --hard
       cd ..
 
+      # Prepare global vars for mobile app Behat support
+      export MOODLE_DOCKER_SELENIUM_VNC_PORT=5900
+      export MOODLE_DOCKER_APP_VERSION=latest-test
+      export MOODLE_DOCKER_BROWSER=chrome
+
       # Start up containers.
       bin/moodle-docker-compose up -d
 
@@ -46,5 +56,9 @@ tasks:
 ports:
   - port: 8000
     name: Moodle server
+    visibility: public
+    onOpen: ignore
+  - port: 5900
+    name: VNC
     visibility: public
     onOpen: ignore
