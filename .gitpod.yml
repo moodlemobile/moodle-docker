@@ -58,7 +58,3 @@ ports:
     name: Moodle server
     visibility: public
     onOpen: ignore
-  - port: 5900
-    name: VNC
-    visibility: public
-    onOpen: ignore
